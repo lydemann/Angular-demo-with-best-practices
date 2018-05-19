@@ -1,6 +1,6 @@
 # Todoapp with best practises
 
-This app is demostrating best practises for Angular and is developed after the [Angular Styleguide](https://angular.io/guide/styleguide).
+This app is demostrating best practices for Angular and is developed after the [Angular Styleguide](https://angular.io/guide/styleguide).
 
 # Angular CLI
 
