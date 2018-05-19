@@ -1,0 +1,12 @@
+<div class="todo-list-wrapper">
+    <div class="mx-auto col-10">
+        <h5>TODO list</h5>
+        <hr>
+        <ul class="list-group mb-3">
+            <app-todo-item *ngFor="let todo of todoList" 
+            [todoItem]="todo" 
+            [readOnlyTODO]="true"></app-todo-item>
+        </ul>
+    </div>
+    <hr>
+</div>

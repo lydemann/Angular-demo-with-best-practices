@@ -1,0 +1,25 @@
+<div class="todo-item" *ngIf="this.todoItem">
+    <li class="list-group-item d-flex justify-content-between lh-condensed" [ngClass]="this.todoItem.completed ? 'bg-completed' :  ''">
+        <div>
+            <h6 class="my-0">{{todoItem.title}}</h6>
+            <small class="text-muted">{{todoItem.description}}</small>
+            <div *ngIf="todoItem.dueDate">
+                <small>Due date:
+                    <b>{{todoItem.dueDate}}</b>
+                </small>
+            </div>
+        </div>
+
+        <div class="align-right btn-group-vertical">
+            <button (click)="completeClick()" type="button" class="btn btn-success" aria-label="Edit">
+                Completed
+            </button>
+            <button *ngIf="!readOnlyTODO" (click)="editClick()" type="button" class="btn btn-info" aria-label="Edit">
+                Edit
+            </button>
+            <button *ngIf="!readOnlyTODO" (click)="deleteClick()" type="button" class="btn btn-danger" aria-label="Delete">
+                Delete
+            </button>
+        </div>
+    </li>
+</div>

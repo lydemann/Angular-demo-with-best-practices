@@ -1,0 +1,23 @@
+<div class="mx-auto col-10">
+  <h5>Add TODO</h5>
+  <hr>
+
+  <div *ngIf="form.submitted && form.invalid" class="alert alert-danger" role="alert">
+    Invalid form
+  </div>
+  <form #form="ngForm" (submit)="save(form)">
+    <div class="form-group">
+      <label for="todo-title">Title</label>
+      <input type="text" required name="todo-title" [(ngModel)]="currentTODO.title" class="form-control" id="todo-title" placeholder="Enter title">
+    </div>
+    <div class="form-group">
+      <label for="todo-description">Description</label>
+      <input type="text" required name="todo-description" [(ngModel)]="currentTODO.description" class="form-control" id="todo-description" placeholder="Enter description">
+    </div>
+    <div class="form-group">
+      <label for="todo-due-date">Due date</label>
+      <input type="date" name="todo-due-date" placeholder="yyyy-mm-dd" [appInvalidDate]="true" class="form-control" [(ngModel)]="currentTODO.dueDate" id="todo-due-date" placeholder="Enter due date">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
