@@ -1,4 +1,4 @@
-# Todoapp with best practises
+# Todoapp with best practices
 
 This app is demostrating best practices for Angular and is developed after the [Angular Styleguide](https://angular.io/guide/styleguide).
 
