@@ -1,14 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InvalidDateValidatorDirective } from './invalid-date.directive';
+import { NgModule } from '@angular/core';
+import { CustomValidatorDirective } from '@app/shared/validators/custom.validator.directive';
+import { InvalidDateValidatorDirective } from '@app/shared/validators/invalid-date.validator.directive';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    InvalidDateValidatorDirective,
-],
-  exports: [InvalidDateValidatorDirective]
+  imports: [CommonModule],
+  declarations: [InvalidDateValidatorDirective, CustomValidatorDirective],
+  exports: [InvalidDateValidatorDirective, CustomValidatorDirective]
 })
-export class SharedModule { }
+export class SharedModule {}

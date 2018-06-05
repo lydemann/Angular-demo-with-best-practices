@@ -1,33 +1,39 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TODOItem } from '@app/shared/models/todo-item';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TodoListService } from '@app/core/todo-list.service';
+import { TODOItem } from '@app/shared/models/todo-item';
+import { CustomValidator } from '@app/shared/validators/custom.validator.directive';
 
+export const MAX_DESCRIPTION_LENGTH = 140;
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
-
- private editingIndex = -1;
-
-  private _currentTODO: TODOItem = new TODOItem('', '');
   public get currentTODO(): TODOItem {
     return this._currentTODO;
   }
-  @Input() public set currentTODO(value: TODOItem) {
+  @Input()
+  public set currentTODO(value: TODOItem) {
     this._currentTODO = Object.assign({}, value);
-    this.editingIndex = this.todoListService.todoList.findIndex(todo => todo.id === value.id);
+    this.editingIndex = this.todoListService.todoList.findIndex(
+      todo => todo.id === value.id
+    );
   }
 
-  constructor(private todoListService: TodoListService) { }
+  private _currentTODO: TODOItem = new TODOItem('', '');
+  private editingIndex = -1;
+  public getLengthCustomValidator = (value: string) =>
+    new CustomValidator(
+      () => value.length < MAX_DESCRIPTION_LENGTH,
+      'minLengthValidator'
+    )
+  constructor(private todoListService: TodoListService) {}
 
-  ngOnInit() {
-  }
+  public ngOnInit() {}
 
-  save(form: NgForm) {
-
+  public save(form: NgForm) {
     if (!form.valid) {
       console.log('Invalid form!');
       // TODO: display form errors
