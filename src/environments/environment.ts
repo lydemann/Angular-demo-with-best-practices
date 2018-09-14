@@ -7,6 +7,10 @@ import { DynamicEnvironment } from './dynamic-environment';
 class Environment extends DynamicEnvironment {
 
   public production: boolean;
+
+  public get feServerUrl() {
+    return 'http://localhost:8080';
+  }
   constructor() {
     super();
     this.production = false;

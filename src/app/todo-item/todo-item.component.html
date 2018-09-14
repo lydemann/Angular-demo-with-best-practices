@@ -4,7 +4,7 @@
             <h6 class="my-0">{{todoItem.title}}</h6>
             <small class="text-muted">{{todoItem.description}}</small>
             <div *ngIf="todoItem.dueDate">
-                <small>Due date:
+                <small>{{'add-todo.due-date' | translate}}:
                     <b>{{todoItem.dueDate}}</b>
                 </small>
             </div>
@@ -12,13 +12,13 @@
 
         <div class="align-right btn-group-vertical">
             <button (click)="completeClick()" type="button" class="btn btn-success" aria-label="Edit">
-                Completed
+                {{'todo-item.completed' | translate}}
             </button>
             <button *ngIf="!readOnlyTODO" (click)="editClick()" type="button" class="btn btn-info" aria-label="Edit">
-                Edit
+                {{'todo-item.edit' | translate}}
             </button>
             <button *ngIf="!readOnlyTODO" (click)="deleteClick()" type="button" class="btn btn-danger" aria-label="Delete">
-                Delete
+                {{'todo-item.delete' | translate}}
             </button>
         </div>
     </li>
