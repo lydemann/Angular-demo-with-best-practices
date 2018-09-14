@@ -3,19 +3,20 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By, BrowserModule } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { TodoListCompletedComponent } from './todo-list-completed.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
-import { APP_BASE_HREF } from '@angular/common';
-import { TODOItem } from '@app/shared/models/todo-item';
+import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
+import { AppModule } from '@app/app.module';
 import { AppComponent } from '@app/app.component';
 import { NavbarComponent } from '@app/navbar/navbar.component';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
 import { TodoItemComponent } from '@app/todo-item/todo-item.component';
 import { FooterComponent } from '@app/footer/footer.component';
 import { AddTodoComponent } from '@app/add-todo/add-todo.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { appRouterModule, completedTodoPath } from '@app/app.routes';
-import { TodoListService } from '@app/core/todo-list.service';
+import { APP_BASE_HREF } from '@angular/common';
+import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { TODOItem } from '@app/shared/models/todo-item';
 
 describe('TodoListCompletedComponent', () => {
   let component: TodoListCompletedComponent;

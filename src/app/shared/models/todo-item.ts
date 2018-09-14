@@ -1,4 +1,4 @@
-import { Guid } from './guid';
+import { Guid } from '@app/shared/models/guid';
 
 export class TODOItem {
 

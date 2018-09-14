@@ -1,10 +1,13 @@
-# Todoapp with best practices
+# AngularBestPracticesDemo
+A demo of Angular best practices including:
 
-This app is demostrating best practices for Angular and is developed after the [Angular Styleguide](https://angular.io/guide/styleguide).
+- VSCode config for fix on saving and organize imports
+- Spinners
+- Auto formating and styling using TSLint and Prettier
+- A server to serve Todos and translations
+- ngx-translate for dynamic translations
 
-# Angular CLI
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
 ## Development server
 
@@ -16,7 +19,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 

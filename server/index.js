@@ -7,8 +7,8 @@ app.use(cors());
 app.get('/todo-list', (req, res) => {
 
     const todoList = [
-        {title: 'Buy Milk', description: 'Remember to buy milk'},
-        {title: 'Go to the gym', description: 'Remember to work out'}
+        {id: 'task1', title: 'Buy Milk', description: 'Remember to buy milk'},
+        {id: 'task2', title: 'Go to the gym', description: 'Remember to work out'}
     ];
     return res.json(todoList);
 });

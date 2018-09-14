@@ -12,20 +12,15 @@
     </div>
     <div class="form-group">
       <label for="todo-description">Description</label>
-      <input type="text" #todoDescriptionInput="ngModel" [appCustomValidator]="getLengthCustomValidator(todoDescriptionInput.value)"
-        required name="todo-description" [(ngModel)]="currentTODO.description" class="form-control" id="todo-description" placeholder="Enter description">
-    </div>
-    <div *ngIf="todoDescriptionInput.touched && todoDescriptionInput.errors" class="alert alert-danger" role="alert">
-      Error
+      <input type="text" required name="todo-description" [(ngModel)]="currentTODO.description" class="form-control" id="todo-description" placeholder="Enter description">
     </div>
     <div class="form-group">
       <label for="todo-due-date">Due date</label>
-      <input type="date" #dueDateInput="ngModel" name="todo-due-date" placeholder="yyyy-mm-dd" [appInvalidDate]="true" class="form-control"
-        [(ngModel)]="currentTODO.dueDate" id="todo-due-date" placeholder="Enter due date">
-    </div>
-    <div *ngIf="dueDateInput.touched && dueDateInput.errors" class="alert alert-danger" role="alert">
-      Error
+      <input type="date" name="todo-due-date" placeholder="yyyy-mm-dd" [appInvalidDate]="true" class="form-control" [(ngModel)]="currentTODO.dueDate" id="todo-due-date" placeholder="Enter due date">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <div *ngIf="isLoading" class="relative">
+      <app-spinner></app-spinner>
+    </div>
   </form>
 </div>

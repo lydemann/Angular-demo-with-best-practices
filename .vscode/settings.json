@@ -1,7 +1,7 @@
 {
-    "tslint.autoFixOnSave": true,
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
-    }
+    },
+    "tslint.autoFixOnSave": true,
+    "editor.formatOnSave": true
 }

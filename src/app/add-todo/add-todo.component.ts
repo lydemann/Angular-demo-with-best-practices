@@ -1,16 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { of } from 'rxjs';
+import { delay, first } from 'rxjs/operators';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TodoListService } from '@app/core/todo-list.service';
 import { TODOItem } from '@app/shared/models/todo-item';
-import { CustomValidator } from '@app/shared/validators/custom.validator.directive';
+import { TodoListService } from '@app/core/todo-list/todo-list.service';
 
-export const MAX_DESCRIPTION_LENGTH = 140;
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
+  private editingIndex = -1;
+
+  public isLoading = false;
+
+  private _currentTODO: TODOItem = new TODOItem('', '');
   public get currentTODO(): TODOItem {
     return this._currentTODO;
   }
@@ -22,33 +27,35 @@ export class AddTodoComponent implements OnInit {
     );
   }
 
-  private _currentTODO: TODOItem = new TODOItem('', '');
-  private editingIndex = -1;
-  public getLengthCustomValidator = (value: string) =>
-    new CustomValidator(
-      () => value.length < MAX_DESCRIPTION_LENGTH,
-      'minLengthValidator'
-    )
   constructor(private todoListService: TodoListService) {}
 
-  public ngOnInit() {}
+  ngOnInit() {}
 
-  public save(form: NgForm) {
+  save(form: NgForm) {
     if (!form.valid) {
       console.log('Invalid form!');
       // TODO: display form errors
       return;
     }
+    this.isLoading = true;
+    of(null)
+      .pipe(
+        delay(2000),
+        first()
+      )
+      .subscribe(() => {
 
-    const currentTODOClone = Object.assign({}, this.currentTODO);
-    if (this.isEditing()) {
-      this.todoListService.todoList[this.editingIndex] = currentTODOClone;
-      this.setAdding();
-    } else {
-      this.todoListService.todoList.push(currentTODOClone);
-      this.currentTODO = new TODOItem('', '');
-    }
-    form.resetForm();
+        this.isLoading = false;
+        const currentTODOClone = Object.assign({}, this.currentTODO);
+        if (this.isEditing()) {
+          this.todoListService.todoList[this.editingIndex] = currentTODOClone;
+          this.setAdding();
+        } else {
+          this.todoListService.todoList.push(currentTODOClone);
+          this.currentTODO = new TODOItem('', '');
+        }
+        form.resetForm();
+      });
   }
 
   private setAdding() {

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
 import { TODOItem } from '@app/shared/models/todo-item';
-import { TodoListService } from '@app/core/todo-list.service';
+import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
@@ -18,6 +18,7 @@ export class TodoListComponent {
   }
 
   deleteTodo(id: string) {
+
     const deleteIndex = this.todoListService.todoList.findIndex(todo => todo.id === id);
     this.todoListService.todoList.splice(deleteIndex, 1);
   }

@@ -1,7 +1,7 @@
+import { ValidatorFn, AbstractControl, NG_VALIDATORS, Validator } from '@angular/forms';
 import { Directive, Input } from '@angular/core';
-import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular/forms';
 
-export function invalidDateValidatorFn(): ValidatorFn {
+export function InvalidDateValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
     const date = new Date(control.value);
     const invalidDate = !control.value || date.getMonth === undefined;
@@ -15,9 +15,9 @@ export function invalidDateValidatorFn(): ValidatorFn {
 })
 export class InvalidDateValidatorDirective implements Validator {
   // tslint:disable-next-line:no-input-rename
-  @Input('appInvalidDate') public invalidDate: string;
-  public validate(control: AbstractControl): { [key: string]: any } {
-    return this.invalidDate ? invalidDateValidatorFn()(control)
+  @Input('appInvalidDate') invalidDate: string;
+  validate(control: AbstractControl): { [key: string]: any } {
+    return this.invalidDate ? InvalidDateValidator()(control)
       : null;
   }
 }

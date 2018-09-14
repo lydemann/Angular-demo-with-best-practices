@@ -5,7 +5,7 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getAmountOfTODOs() {
-    return element(by.css('.todo-item')).count;
+  getParagraphText() {
+    return element(by.css('app-root h1')).getText();
   }
 }
