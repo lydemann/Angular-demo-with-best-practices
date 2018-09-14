@@ -3,6 +3,9 @@
     "choose-language": "Choose language",
     "todo-list": "TODO list",
     "completed-todos": "Completed TODOs",
+    "errors": {
+        "invalid-form": "Invalid form"
+    },
     "todo-item": {
         "completed": "Completed",
         "edit": "Edit",
