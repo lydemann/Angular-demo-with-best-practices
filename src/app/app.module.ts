@@ -18,11 +18,11 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'environments/environment';
 
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, environment.feServerUrl + '/assets/i18n/', '-lang.json');
-}
 export function init_app(appLoadService: AppInitService) {
   return () => appLoadService.init();
+}
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, environment.feServerUrl + '/assets/i18n/', '-lang.json');
 }
 @NgModule({
   declarations: [
