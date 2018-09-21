@@ -6,9 +6,18 @@
     "start": "nodemon server | ng serve",
     "start:server": "nodemon server",
     "build": "ng build --prod",
-    "test": "ng test --sourcemaps false",
+    "test": "ng test",
+    "test:watch": "ng test --source-map false --watch",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100,
+    "semi": true,
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "parser": "typescript"
   },
   "private": true,
   "dependencies": {
