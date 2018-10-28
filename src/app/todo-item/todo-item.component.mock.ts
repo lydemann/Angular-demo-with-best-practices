@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TODOItem } from '@app/shared/models/todo-item';
+import { TodoItemComponent } from '@app/todo-item/todo-item.component';
 
 @Component({
   selector: 'app-todo-item',
   template: ''
 })
-export class TodoItemComponentMock implements OnInit {
+export class TodoItemComponentMock implements OnInit, TodoItemComponent {
 
   @Input() public todoItem: TODOItem;
   @Input() public readOnlyTODO: boolean;
