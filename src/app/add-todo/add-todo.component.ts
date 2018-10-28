@@ -1,9 +1,8 @@
-import { of } from 'rxjs';
-import { delay, first } from 'rxjs/operators';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TODOItem } from '@app/shared/models/todo-item';
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { TODOItem } from '@app/shared/models/todo-item';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-todo',
@@ -27,9 +26,9 @@ export class AddTodoComponent implements OnInit {
     );
   }
 
-  constructor(private todoListService: TodoListService) {}
+  constructor(private todoListService: TodoListService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   save(form: NgForm) {
     if (!form.valid) {
@@ -38,24 +37,24 @@ export class AddTodoComponent implements OnInit {
       return;
     }
     this.isLoading = true;
-    of(null)
-      .pipe(
-        delay(2000),
-        first()
-      )
-      .subscribe(() => {
 
+    if (this.isEditing()) {
+      this.todoListService.updateTodo(this.currentTODO).pipe(first()).subscribe(() => {
         this.isLoading = false;
         const currentTODOClone = Object.assign({}, this.currentTODO);
-        if (this.isEditing()) {
-          this.todoListService.todoList[this.editingIndex] = currentTODOClone;
-          this.setAdding();
-        } else {
-          this.todoListService.todoList.push(currentTODOClone);
-          this.currentTODO = new TODOItem('', '');
-        }
+        this.todoListService.todoList[this.editingIndex] = currentTODOClone;
+        this.setAdding();
         form.resetForm();
-      });
+      })
+    } else {
+      this.todoListService.addTodo(this.currentTODO).pipe(first()).subscribe(() => {
+        this.isLoading = false;
+        const currentTODOClone = Object.assign({}, this.currentTODO);
+        this.todoListService.todoList.push(currentTODOClone);
+        this.currentTODO = new TODOItem('', '');
+        form.resetForm();
+      })
+    }
   }
 
   private setAdding() {

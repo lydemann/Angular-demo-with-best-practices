@@ -1,6 +1,6 @@
-import { TODOItem } from '@app/shared/models/todo-item';
-import { TodoListService } from '@app/core/todo-list/todo-list.service';
 import { Component } from '@angular/core';
+import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { TODOItem } from '@app/shared/models/todo-item';
 
 @Component({
   selector: 'app-todo-list',

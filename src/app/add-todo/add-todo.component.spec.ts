@@ -1,21 +1,12 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, NgForm } from '@angular/forms';
 import { AddTodoComponent } from '@app/add-todo/add-todo.component';
-import { AppComponent } from '@app/app.component';
-import { appRouterModule } from '@app/app.routes';
-import { CoreModule } from '@app/core/core.module';
-import { FooterComponent } from '@app/footer/footer.component';
-import { NavbarComponent } from '@app/navbar/navbar.component';
-import { TodoItemComponent } from '@app/todo-item/todo-item.component';
-import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
-import { TodoListComponent } from '@app/todo-list/todo-list.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { SpyHelper } from '@app/helpers/spy-helper';
 import { TranslateModule } from '@ngx-translate/core';
+import { of } from 'rxjs';
 
 
 describe('AddTodoComponent', () => {
@@ -25,30 +16,24 @@ describe('AddTodoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        NavbarComponent,
-        TodoListComponent,
-        TodoItemComponent,
-        FooterComponent,
         AddTodoComponent,
-        TodoListCompletedComponent,
       ],
       imports: [
-        BrowserModule,
-        NgbModule.forRoot(),
         FormsModule,
-        CoreModule,
         TranslateModule.forRoot(),
-        HttpClientModule,
-        appRouterModule
       ],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+      providers: [
+        SpyHelper.provideMagicalMock(TodoListService)
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   }));
 
+  let todoListServiceMock: jasmine.SpyObj<TodoListService>;
   beforeEach(() => {
+    todoListServiceMock = TestBed.get(TodoListService);
+
     fixture = TestBed.createComponent(AddTodoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -56,5 +41,46 @@ describe('AddTodoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should update todo item when todo item is in todo list', () => {
+
+    // Arrange
+    const todoList = [
+      { id: 'task1', title: 'Buy Milk', description: 'Remember to buy milk' },
+      { id: 'task2', title: 'Go to the gym', description: 'Remember to work out' }
+    ];
+    (todoListServiceMock as any).todoList = todoList;
+    todoListServiceMock.updateTodo.and.returnValue(of([]));
+
+    // Act
+    component.currentTODO = todoList[0];
+    const form = new NgForm([], []);
+    component.save(form);
+
+    // Assert
+    expect(todoListServiceMock.updateTodo).toHaveBeenCalledWith(component.currentTODO);
+  });
+
+  it('should add new todo item when todo item is not in todo list', () => {
+    // Arrange
+    const newTodo = { id: 'lala1', title: 'Buy Milk', description: 'Remember to buy milk' };
+
+    const todoList = [
+      { id: 'task1', title: 'Buy Milk', description: 'Remember to buy milk' },
+      { id: 'task2', title: 'Go to the gym', description: 'Remember to work out' }
+    ];
+    (todoListServiceMock as any).todoList = todoList;
+    todoListServiceMock.addTodo.and.returnValue(of([]));
+
+    // Act
+    component.currentTODO = newTodo;
+    const form = new NgForm([], []);
+
+    debugger;
+    component.save(form);
+
+    // Assert
+    expect(todoListServiceMock.addTodo).toHaveBeenCalledWith(newTodo);
   });
 });

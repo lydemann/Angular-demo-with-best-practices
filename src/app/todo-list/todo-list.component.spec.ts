@@ -1,22 +1,11 @@
 /* tslint:disable:no-unused-variable */
 import { APP_BASE_HREF } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { AddTodoComponent } from '@app/add-todo/add-todo.component';
-import { AppComponent } from '@app/app.component';
-import { appRouterModule } from '@app/app.routes';
+import { AddTodoComponentMock } from '@app/add-todo/add-todo.component.mock';
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
-import { FooterComponent } from '@app/footer/footer.component';
-import { NavbarComponent } from '@app/navbar/navbar.component';
-import { InvalidDateValidatorDirective } from '@app/shared/invalid-date.directive';
 import { TODOItem } from '@app/shared/models/todo-item';
-import { SpinnerModule } from '@app/shared/spinner/spinner.module';
-import { TodoItemComponent } from '@app/todo-item/todo-item.component';
-import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
+import { TodoItemComponentMock } from '@app/todo-item/todo-item.component.mock';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 
 
@@ -35,23 +24,12 @@ describe('TodoListComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        NavbarComponent,
         TodoListComponent,
-        TodoItemComponent,
-        FooterComponent,
-        AddTodoComponent,
-        InvalidDateValidatorDirective,
-        TodoListCompletedComponent,
+        TodoItemComponentMock,
+        AddTodoComponentMock
       ],
       imports: [
-        BrowserModule,
-        NgbModule.forRoot(),
         TranslateModule.forRoot(),
-        FormsModule,
-        HttpClientModule,
-        SpinnerModule,
-        appRouterModule
       ],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' },
       {
