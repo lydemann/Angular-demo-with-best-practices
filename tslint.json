@@ -1,6 +1,7 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "node_modules/tslint-jasmine-rules/dist"
   ],
   "rules": {
     "arrow-return-shorthand": true,
@@ -11,14 +12,10 @@
       "check-space"
     ],
     "curly": true,
-    "deprecation": {
-      "severity": "warn"
-    },
     "eofline": true,
     "forin": true,
     "import-blacklist": [
-      true,
-      "rxjs/Rx"
+      false
     ],
     "import-spacing": true,
     "indent": [
@@ -28,17 +25,17 @@
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
-      true,
-      140
+      false
     ],
-    "member-access": false,
+    "member-access": true,
     "member-ordering": [
       true,
       {
         "order": [
           "static-field",
-          "instance-field",
           "static-method",
+          "instance-field",
+          "constructor",
           "instance-method"
         ]
       }
@@ -46,12 +43,7 @@
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
+      true
     ],
     "no-construct": true,
     "no-debugger": true,
@@ -65,7 +57,6 @@
     ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -85,13 +76,11 @@
     ],
     "prefer-const": true,
     "quotemark": [
-      true,
-      "single"
+      false
     ],
     "radix": true,
     "semicolon": [
-      true,
-      "always"
+      false
     ],
     "triple-equals": [
       true,
@@ -117,7 +106,18 @@
       "check-separator",
       "check-type"
     ],
-    "no-output-on-prefix": true,
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
@@ -126,6 +126,11 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "no-access-missing-member": true,
+    "templates-use-public": true,
+    "invoke-injectable": true,
+    "no-focused-tests": true,
+    "no-disabled-tests": false
   }
 }
