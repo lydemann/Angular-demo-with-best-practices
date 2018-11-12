@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "nodemon server | ng serve",
+    "start:server": "nodemon server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -36,6 +37,7 @@
     "bootstrap": "^4.0.0",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
+    "cors": "^2.8.4",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
