@@ -8,7 +8,8 @@
   <form #form="ngForm" (submit)="save(form)">
     <div class="form-group">
       <label for="todo-title">{{'add-todo.title' | translate}}</label>
-      <input type="text" required name="todo-title" [(ngModel)]="currentTODO.title" class="form-control" id="todo-title" placeholder="Enter title">
+      <input type="text" required name="todo-title" [(ngModel)]="currentTODO.title" class="form-control" id="todo-title"
+        placeholder="Enter title">
     </div>
     <div class="form-group">
       <label for="todo-description">{{'add-todo.description' | translate}}</label>
@@ -17,8 +18,8 @@
     </div>
     <div class="form-group">
       <label for="todo-due-date">{{'add-todo.due-date' | translate}}</label>
-      <input type="date" name="todo-due-date" placeholder="yyyy-mm-dd" [appInvalidDate]="true" class="form-control" [(ngModel)]="currentTODO.dueDate"
-        id="todo-due-date" placeholder="Enter due date">
+      <input type="date" name="todo-due-date" placeholder="yyyy-mm-dd" [appInvalidDate]="true" class="form-control"
+        [(ngModel)]="currentTODO.dueDate" id="todo-due-date" placeholder="Enter due date">
     </div>
     <button type="submit" class="btn btn-primary">{{'add-todo.create' | translate}}</button>
     <div *ngIf="isLoading" class="relative">

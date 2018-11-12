@@ -11,7 +11,7 @@ import { FooterComponent } from '@app/footer/footer.component';
 import { NavbarComponent } from '@app/navbar/navbar.component';
 import { InvalidDateValidatorDirective } from '@app/shared/invalid-date.directive';
 import { SpinnerModule } from '@app/shared/spinner/spinner.module';
-import { TodoItemComponent } from '@app/todo-item/todo-item.component';
+import { TodoItemComponent } from '@app/shared/todo-item/todo-item.component';
 import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
