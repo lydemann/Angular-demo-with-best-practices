@@ -1,6 +1,13 @@
-# AngularDemoWithBestPractices
+# AngularBestPracticesDemo
+A demo of Angular best practices including:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
+- VSCode config for fix on saving and organize imports
+- Spinners
+- Auto formating and styling using TSLint and Prettier
+- A server to serve Todos and translations
+- ngx-translate for dynamic translations
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
 ## Development server
 

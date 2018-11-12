@@ -1,0 +1,21 @@
+{
+    "app-title": "TODO app",
+    "choose-language": "Vælg sprog",
+    "todo-list": "TODO liste",
+    "completed-todos": "Udførte TODOs",
+    "errors": {
+        "invalid-form": "Ugyldig form"
+    },
+    "todo-item": {
+        "completed": "Udført",
+        "edit": "Redigér",
+        "delete": "Slet"
+    },
+    "add-todo": {
+        "headline": "Tilføj TODO",
+        "title": "Titel",
+        "description": "Beskrivelse",
+        "due-date": "Forfaldsdato",
+        "create": "Opret"
+    }
+}
