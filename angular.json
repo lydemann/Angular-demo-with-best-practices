@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "spinners-demo": {
+    "angular-demo-with-best-practices": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/spinners-demo",
+            "outputPath": "dist/angular-demo-with-best-practices",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -47,25 +47,32 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "spinners-demo:build"
+            "browserTarget": "angular-demo-with-best-practices:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "spinners-demo:build:production"
+              "browserTarget": "angular-demo-with-best-practices:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "spinners-demo:build"
+            "browserTarget": "angular-demo-with-best-practices:build"
           }
         },
         "test": {
@@ -99,19 +106,20 @@
         }
       }
     },
-    "spinners-demo-e2e": {
+    "angular-demo-with-best-practices-e2e": {
       "root": "e2e/",
       "projectType": "application",
+      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "spinners-demo:serve"
+            "devServerTarget": "angular-demo-with-best-practices:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "spinners-demo:serve:production"
+              "devServerTarget": "angular-demo-with-best-practices:serve:production"
             }
           }
         },
@@ -127,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "spinners-demo"
+  "defaultProject": "angular-demo-with-best-practices"
 }
