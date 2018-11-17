@@ -1,22 +1,21 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TODOItem } from '@app/shared/models/todo-item';
-import { TodoItemComponent } from '@app/shared/todo-item/todo-item.component';
+import { TodoItemListRowComponent } from './todo-item-list-row.component';
 
 @Component({
   selector: 'app-todo-item',
   template: ''
 })
-export class TodoItemComponentMock implements OnInit, TodoItemComponent {
-
+// tslint:disable-next-line:component-class-suffix
+export class TodoItemListRowComponentMock implements OnInit, TodoItemListRowComponent {
   @Input() public todoItem: TODOItem;
   @Input() public readOnlyTODO: boolean;
   @Output() public todoDelete = new EventEmitter();
   @Output() public todoEdit = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  public ngOnInit() {
-  }
+  public ngOnInit() {}
 
   public completeClick() {
     this.todoItem.completed = !this.todoItem.completed;

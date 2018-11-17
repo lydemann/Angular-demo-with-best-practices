@@ -8,7 +8,7 @@ import { TODOItem } from '@app/shared/models/todo-item';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-  currentTODO: TODOItem = new TODOItem('', '');
+  public currentTODO: TODOItem = new TODOItem('', '');
 
   constructor(private todoListService: TodoListService) {}
 
@@ -16,12 +16,12 @@ export class TodoListComponent {
     return this.todoListService.todoList;
   }
 
-  deleteTodo(id: string) {
+  public deleteTodo(id: string) {
     const deleteIndex = this.todoListService.todoList.findIndex((todo) => todo.id === id);
     this.todoListService.todoList.splice(deleteIndex, 1);
   }
 
-  editTodo(todoItem: TODOItem) {
+  public editTodo(todoItem: TODOItem) {
     this.currentTODO = todoItem;
   }
 }

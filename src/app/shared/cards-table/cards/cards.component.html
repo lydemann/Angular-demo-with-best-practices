@@ -1,0 +1,17 @@
+<div class="cards-wrapper" *ngIf="data.length > 0; else noContent">
+  <div class="card-item" *ngFor="let dataItem of data">
+    <ng-container *ngIf="cardRef; else noCard" [ngTemplateOutlet]="cardRef" [ngTemplateOutletContext]="{data: dataItem}">
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #noContent>
+  <div class="no-data">
+    {{'taskCards.noData' | translate}}
+  </div>
+</ng-template>
+<ng-template #noCard>
+  <div class="no-data">
+    {{'taskCards.noCardRef' | translate}}
+  </div>
+</ng-template>

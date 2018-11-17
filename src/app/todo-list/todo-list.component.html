@@ -3,16 +3,20 @@
     <h5>{{'todo-list' | translate}}</h5>
     <hr>
 
-
-    <ul class="list-group mb-3">
-      <app-todo-item *ngFor="let todo of todoList" [todoItem]="todo" (todoDelete)="deleteTodo($event)" (todoEdit)="editTodo($event)"></app-todo-item>
-    </ul>
-
-
-    <app-cards-list></app-cards-list>
+    <app-cards-list [tableRef]="todoListRef" [cardRef]="todoItemCardRef" [data]="todoList"></app-cards-list>
   </div>
 
   <hr>
 
   <app-add-todo [currentTODO]="currentTODO"></app-add-todo>
 </div>
+
+<ng-template #todoItemCardRef let-todo="data">
+  <app-todo-item-card [todoItem]="todo" (todoDelete)="deleteTodo($event)" (todoEdit)="editTodo($event)"></app-todo-item-card>
+</ng-template>
+
+<ng-template #todoListRef let-todos="data">
+  <ul class="list-group mb-3">
+    <app-todo-item-list-row *ngFor="let todo of todos" [todoItem]="todo" (todoDelete)="deleteTodo($event)" (todoEdit)="editTodo($event)"></app-todo-item-list-row>
+  </ul>
+</ng-template>

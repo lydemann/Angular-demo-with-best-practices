@@ -11,16 +11,16 @@ import { NavbarComponent } from '@app/navbar/navbar.component';
 import { InvalidDateValidatorDirective } from '@app/shared/invalid-date.directive';
 import { TODOItem } from '@app/shared/models/todo-item';
 import { SpinnerModule } from '@app/shared/spinner/spinner.module';
-import { TodoItemComponent } from '@app/todo-item/todo-item.component';
 import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
 import { AddTodoComponent } from '@app/todo-list/add-todo/add-todo.component';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { TodoItemListRowComponent } from './todo-item-list-row.component';
 
-describe('TodoItemComponent', () => {
-  let component: TodoItemComponent;
-  let fixture: ComponentFixture<TodoItemComponent>;
+describe('TodoItemListRowComponent', () => {
+  let component: TodoItemListRowComponent;
+  let fixture: ComponentFixture<TodoItemListRowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,7 +28,7 @@ describe('TodoItemComponent', () => {
         AppComponent,
         NavbarComponent,
         TodoListComponent,
-        TodoItemComponent,
+        TodoItemListRowComponent,
         FooterComponent,
         AddTodoComponent,
         TodoListCompletedComponent,
@@ -53,7 +53,7 @@ describe('TodoItemComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoItemComponent);
+    fixture = TestBed.createComponent(TodoItemListRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

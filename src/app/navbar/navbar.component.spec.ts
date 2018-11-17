@@ -10,7 +10,7 @@ import { appRouterModule } from '@app/app.routes';
 import { CoreModule } from '@app/core/core.module';
 import { FooterComponent } from '@app/footer/footer.component';
 import { NavbarComponent } from '@app/navbar/navbar.component';
-import { TodoItemComponent } from '@app/shared/todo-item/todo-item.component';
+import { TodoItemListRowComponent } from '@app/shared/todo-item-list-row/todo-item-list-row.component';
 import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
 import { AddTodoComponent } from '@app/todo-list/add-todo/add-todo.component';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
@@ -27,7 +27,7 @@ describe('NavbarComponent', () => {
         AppComponent,
         NavbarComponent,
         TodoListComponent,
-        TodoItemComponent,
+        TodoItemListRowComponent,
         FooterComponent,
         AddTodoComponent,
         TodoListCompletedComponent

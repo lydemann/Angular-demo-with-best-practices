@@ -1,0 +1,11 @@
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card-item {
+  min-width: 280px;
+  margin: 5px;
+  flex-basis: 280px;
+}
