@@ -2,12 +2,11 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgForm } from '@angular/forms';
-import { AddTodoComponent } from '@app/add-todo/add-todo.component';
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
 import { SpyHelper } from '@app/helpers/spy-helper';
 import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
-
+import { AddTodoComponent } from './add-todo.component';
 
 describe('AddTodoComponent', () => {
   let component: AddTodoComponent;
@@ -15,19 +14,11 @@ describe('AddTodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AddTodoComponent,
-      ],
-      imports: [
-        FormsModule,
-        TranslateModule.forRoot(),
-      ],
-      providers: [
-        SpyHelper.provideMagicalMock(TodoListService)
-      ],
+      declarations: [AddTodoComponent],
+      imports: [FormsModule, TranslateModule.forRoot()],
+      providers: [SpyHelper.provideMagicalMock(TodoListService)],
       schemas: [NO_ERRORS_SCHEMA]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   let todoListServiceMock: jasmine.SpyObj<TodoListService>;
@@ -44,7 +35,6 @@ describe('AddTodoComponent', () => {
   });
 
   it('should update todo item when todo item is in todo list', () => {
-
     // Arrange
     const todoList = [
       { id: 'task1', title: 'Buy Milk', description: 'Remember to buy milk' },
@@ -77,7 +67,6 @@ describe('AddTodoComponent', () => {
     component.currentTODO = newTodo;
     const form = new NgForm([], []);
 
-    debugger;
     component.save(form);
 
     // Assert

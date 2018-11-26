@@ -1,22 +1,20 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TODOItem } from '@app/shared/models/todo-item';
-import { TodoItemComponent } from '@app/shared/todo-item/todo-item.component';
 
 @Component({
-  selector: 'app-todo-item',
-  template: ''
+  selector: 'app-todo-item-card',
+  templateUrl: './todo-item-card.component.html',
+  styleUrls: ['./todo-item-card.component.scss']
 })
-export class TodoItemComponentMock implements OnInit, TodoItemComponent {
-
+export class TodoItemCardComponent implements OnInit {
   @Input() public todoItem: TODOItem;
   @Input() public readOnlyTODO: boolean;
   @Output() public todoDelete = new EventEmitter();
   @Output() public todoEdit = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  public ngOnInit() {
-  }
+  public ngOnInit() {}
 
   public completeClick() {
     this.todoItem.completed = !this.todoItem.completed;

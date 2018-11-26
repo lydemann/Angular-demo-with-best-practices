@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { InvalidDateValidatorDirective } from '@app/shared/invalid-date.directive';
 import { SpinnerOverlayWrapperModule } from '@app/shared/spinner-overlay-wrapper/spinner-overlay-wrapper.module';
 import { SpinnerModule } from '@app/shared/spinner/spinner.module';
-import { TodoItemComponent } from '@app/shared/todo-item/todo-item.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppMaterialModule } from './app-material/app-material.module';
+import { CardListModule } from './cards-list/cards-list.module';
+import { TodoItemCardComponent } from './todo-item-card/todo-item-card.component';
+import { TodoItemListRowComponent } from './todo-item-list-row/todo-item-list-row.component';
 
 @NgModule({
   imports: [
@@ -13,15 +15,18 @@ import { AppMaterialModule } from './app-material/app-material.module';
     SpinnerModule,
     SpinnerOverlayWrapperModule,
     TranslateModule,
+    CardListModule,
     AppMaterialModule
   ],
-  declarations: [InvalidDateValidatorDirective, TodoItemComponent],
+  declarations: [InvalidDateValidatorDirective, TodoItemListRowComponent, TodoItemCardComponent],
   exports: [
     InvalidDateValidatorDirective,
     SpinnerModule,
     SpinnerOverlayWrapperModule,
     TranslateModule,
-    TodoItemComponent,
+    CardListModule,
+    TodoItemListRowComponent,
+    TodoItemCardComponent,
     AppMaterialModule
   ]
 })

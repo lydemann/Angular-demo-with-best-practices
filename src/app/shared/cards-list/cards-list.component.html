@@ -1,0 +1,15 @@
+<div class="mx-auto right mb-15">
+  <button class="btn mr-10" (click)="showCards()" [ngClass]="{'btn-info': typeToShow === 'cards'}">
+    {{'todo-list-section.show-cards' | translate}}
+  </button>
+  <button class="btn" (click)="showTable()" [ngClass]="{'btn-info': typeToShow === 'table'}">
+    {{'todo-list-section.show-list' | translate}}
+  </button>
+</div>
+<ng-container *ngIf="typeToShow === 'table'">
+  <app-list [tableRef]="tableRef" [data]="data">
+  </app-list>
+</ng-container>
+<ng-container *ngIf="typeToShow === 'cards'">
+  <app-cards [cardRef]="cardRef" [data]="data"></app-cards>
+</ng-container>
