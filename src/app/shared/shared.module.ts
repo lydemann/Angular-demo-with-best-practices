@@ -5,7 +5,7 @@ import { SpinnerOverlayWrapperModule } from '@app/shared/spinner-overlay-wrapper
 import { SpinnerModule } from '@app/shared/spinner/spinner.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppMaterialModule } from './app-material/app-material.module';
-import { CardListModule } from './cards-table/cards-list.module';
+import { CardListModule } from './cards-list/cards-list.module';
 import { TodoItemCardComponent } from './todo-item-card/todo-item-card.component';
 import { TodoItemListRowComponent } from './todo-item-list-row/todo-item-list-row.component';
 

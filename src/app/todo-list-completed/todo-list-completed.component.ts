@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { TodoListCompletedService } from './todo-list-completed.service';
 
 @Component({
   selector: 'app-todo-list-completed',
   templateUrl: './todo-list-completed.component.html',
-  styleUrls: ['./todo-list-completed.component.css']
+  styleUrls: ['./todo-list-completed.component.css'],
+  viewProviders: [TodoListCompletedService]
 })
 export class TodoListCompletedComponent {
+  constructor(private todoListCompletedService: TodoListCompletedService) {}
 
-  constructor(private todoListService: TodoListService) { }
-
-  get todoList() {
-    return this.todoListService.todoList.filter(todo => todo.completed);
+  public get todoList() {
+    return this.todoListCompletedService.todoList;
   }
 }

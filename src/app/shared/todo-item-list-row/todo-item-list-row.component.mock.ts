@@ -3,7 +3,7 @@ import { TODOItem } from '@app/shared/models/todo-item';
 import { TodoItemListRowComponent } from './todo-item-list-row.component';
 
 @Component({
-  selector: 'app-todo-item',
+  selector: 'app-todo-item-list-row',
   template: ''
 })
 // tslint:disable-next-line:component-class-suffix

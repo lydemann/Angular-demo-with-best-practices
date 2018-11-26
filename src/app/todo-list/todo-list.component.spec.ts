@@ -27,7 +27,9 @@ describe('TodoListComponent', () => {
           useValue: { todoList: todoList }
         }
       ]
-    }).compileComponents();
+    })
+      .overrideTemplate(TodoListComponent, '')
+      .compileComponents();
   }));
 
   beforeEach(() => {
