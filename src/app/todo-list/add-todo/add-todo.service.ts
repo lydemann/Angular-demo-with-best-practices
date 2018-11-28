@@ -7,6 +7,7 @@ import { first } from 'rxjs/operators';
 @Injectable()
 export class AddTodoService {
   private editingIndex = -1;
+  private todoBeingEdited: TODOItem;
   public isLoading = false;
 
   private _currentTODO: TODOItem = new TODOItem('', '');
@@ -18,7 +19,7 @@ export class AddTodoService {
     this.editingIndex = this.todoListService.todoList.findIndex((todo) => todo.id === value.id);
   }
 
-  constructor(private todoListService: TodoListService) {}
+  constructor(private todoListService: TodoListService) { }
 
   public save(form: NgForm) {
     if (!form.valid) {
