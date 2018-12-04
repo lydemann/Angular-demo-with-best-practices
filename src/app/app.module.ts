@@ -11,7 +11,6 @@ import { NavbarComponent } from '@app/navbar/navbar.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { TodoListCompletedModule } from '@app/todo-list-completed/todo-list-completed.module';
 import { TodoListModule } from '@app/todo-list/todo-list.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'environments/environment';
@@ -30,7 +29,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [AppComponent, NavbarComponent, FooterComponent],
   imports: [
     BrowserModule,
-    NgbModule.forRoot(),
     FormsModule,
     CoreModule,
     SharedModule,
