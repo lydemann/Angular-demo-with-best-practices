@@ -13,7 +13,7 @@ export class TodoListService {
         return this._todoList;
     }
 
-    private todoListUrl = '//localhost:8080/todo-list';
+    private todoListUrl = '//localhost:8080/api/todo-list';
 
     constructor(httpClient: HttpClient) {
         httpClient.get<Array<TODOItem>>(this.todoListUrl).subscribe(data => {

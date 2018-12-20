@@ -1,23 +1,20 @@
-import { DynamicEnvironment } from './dynamic-environment';
+declare var window: any;
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-class Environment extends DynamicEnvironment {
+export const environment = {
+  production: false,
 
-  public production: boolean;
+  get environment() {
+    return window.config.environment;
+  },
 
-  public get feServerUrl() {
-    return 'http://localhost:8080';
+  get feServerUrl() {
+    return window.config.feServerUrl;
   }
-  constructor() {
-    super();
-    this.production = false;
-  }
-}
-
-export const environment = new Environment();
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

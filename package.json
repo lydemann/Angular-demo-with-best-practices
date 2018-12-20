@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon server | ng serve",
+
     "start:server": "nodemon server",
     "build": "ng build --prod",
+    "start:pwa": "rimraf dist && npm run build && cd dist && http-server -p 4200",
     "test": "ng test",
     "test:watch": "ng test --watch true",
     "lint": "ng lint",
@@ -31,7 +33,9 @@
     "@angular/material": "^7.0.3",
     "@angular/platform-browser": "^7.0.0",
     "@angular/platform-browser-dynamic": "^7.0.0",
+    "@angular/pwa": "^0.11.1",
     "@angular/router": "^7.0.0",
+    "@angular/service-worker": "^7.0.0",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
     "bootstrap": "^4.0.0",

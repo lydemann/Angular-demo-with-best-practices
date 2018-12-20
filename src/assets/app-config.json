@@ -1,3 +1,4 @@
 {
-    "environment": "local"
+  "environment": "local",
+  "feServerUrl": "http://localhost:8080"
 }

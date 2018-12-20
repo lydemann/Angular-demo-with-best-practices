@@ -1,12 +1,12 @@
-import { DynamicEnvironment } from './dynamic-environment';
+declare var window: any;
 
-class Environment extends DynamicEnvironment {
+export const environment = {
+  production: true,
+  get environment() {
+    return window.config.environment;
+  },
 
-  public production: boolean;
-  constructor() {
-    super();
-    this.production = true;
+  get feServerUrl() {
+    return window.config.feServerUrl;
   }
-}
-
-export const environment = new Environment();
+};
