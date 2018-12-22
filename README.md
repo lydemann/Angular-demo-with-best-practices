@@ -22,7 +22,7 @@ Push:
 git subtree push --prefix src/shared-lib https://github.com/lydemann/angular-shared --rejoin --squash
 
 Split:
-git subtree split --prefix src/shared-lib https://github.com/lydemann/angular-shared --rejoin --squash 
+git subtree split --prefix src/shared-lib -b split --rejoin --squash 
 
 and push the split:
 git push https://github.com/lydemann/angular-shared master
