@@ -1,17 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SpinnerComponent } from '@app/shared/spinner/spinner.component';
+import { SpinnerComponent } from '@shared-lib/spinner/spinner.component';
 
 @Component({
   selector: 'app-spinner',
-  template: '',
+  template: ''
 })
 export class SpinnerComponentMock implements OnInit, SpinnerComponent {
-
   @Input() message = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

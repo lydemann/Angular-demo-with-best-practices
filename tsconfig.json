@@ -19,6 +19,9 @@
     "paths": {
       "@app/*": [
         "app/*"
+      ],
+      "@shared-lib/*": [
+        "shared-lib/*"
       ]
     }
   }
