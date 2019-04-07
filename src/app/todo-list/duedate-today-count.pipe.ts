@@ -6,7 +6,6 @@ import { TODOItem } from '@app/shared/models/todo-item';
 })
 export class DuedateTodayCountPipe implements PipeTransform {
   transform(todoItems: TODOItem[], args?: any): any {
-    console.log('Called getDuedateTodayCount');
     return todoItems.filter((todo) => this.isToday(new Date(todo.dueDate))).length;
   }
 
