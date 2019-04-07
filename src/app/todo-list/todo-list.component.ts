@@ -9,16 +9,13 @@ import { TODOItem } from '@app/shared/models/todo-item';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent implements OnInit {
-  // TODO: current todo item i store
   public todoList$ = this.todoListService.getTodoList();
   public selectedTodoForEdit$ = this.todoListService.getTodoForEdit$();
   public isLoading$ = this.todoListService.isLoading$;
 
   constructor(private todoListService: TodoListService) {}
 
-  ngOnInit(): void {
-    this.todoListService.loadTodoList();
-  }
+  ngOnInit(): void {}
 
   public deleteTodo(id: string) {
     this.todoListService.deleteTodo(id);
