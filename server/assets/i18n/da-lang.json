@@ -13,7 +13,8 @@
   },
   "todo-list-section": {
     "show-cards": "Vis kort",
-    "show-list": "Vis liste"
+    "show-list": "Vis liste",
+    "todos-duedate-today": "Udløber i dag"
   },
   "add-todo": {
     "headline": "Tilføj TODO",

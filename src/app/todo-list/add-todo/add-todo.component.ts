@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TODOItem } from '@app/shared/models/todo-item';
 import { AddTodoService } from './add-todo.service';
@@ -10,9 +10,8 @@ import { AddTodoService } from './add-todo.service';
   viewProviders: [AddTodoService]
 })
 export class AddTodoComponent implements OnInit {
-  public get isLoading() {
-    return this.addTodoService.isLoading;
-  }
+  @Input()
+  public isLoading = false;
 
   public get currentTODO(): TODOItem {
     return this.addTodoService.currentTODO;
@@ -20,6 +19,16 @@ export class AddTodoComponent implements OnInit {
   @Input()
   public set currentTODO(todo: TODOItem) {
     this.addTodoService.currentTODO = todo;
+  }
+
+  @Output()
+  public get todoItemEdit() {
+    return this.addTodoService.todoItemEdit;
+  }
+
+  @Output()
+  public get todoItemCreate() {
+    return this.addTodoService.todoItemCreate;
   }
 
   constructor(private addTodoService: AddTodoService) {}

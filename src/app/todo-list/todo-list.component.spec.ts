@@ -1,12 +1,13 @@
 /* tslint:disable:no-unused-variable */
-import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
 import { TODOItem } from '@app/shared/models/todo-item';
 import { TodoItemListRowComponentMock } from '@app/shared/todo-item-list-row/todo-item-list-row.component.mock';
 import { AddTodoComponentMock } from '@app/todo-list/add-todo/add-todo.component.mock';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { of } from 'rxjs';
+import { TodoListActions } from './redux-api/todo-list.actions';
+import { TodoListSelector } from './redux-api/todo-list.selector';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -19,12 +20,23 @@ describe('TodoListComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [TodoListComponent, TodoItemListRowComponentMock, AddTodoComponentMock],
-      imports: [TranslateModule.forRoot()],
+      imports: [],
       providers: [
-        { provide: APP_BASE_HREF, useValue: '/' },
         {
           provide: TodoListService,
           useValue: { todoList: todoList }
+        },
+        {
+          provide: TodoListSelector,
+          useValue: {
+            getTodoList: () => of([])
+          }
+        },
+        {
+          provide: TodoListActions,
+          useValue: {
+            loadTodoList: () => {}
+          }
         }
       ]
     })
@@ -40,9 +52,5 @@ describe('TodoListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should have two completed TODO item', () => {
-    expect(component.todoList.length).toBe(2);
   });
 });

@@ -10,7 +10,6 @@ import { CoreModule } from '@app/core/core.module';
 import { FooterComponent } from '@app/footer/footer.component';
 import { NavbarComponent } from '@app/navbar/navbar.component';
 import { SharedModule } from '@app/shared/shared.module';
-import { TodoListCompletedModule } from '@app/todo-list-completed/todo-list-completed.module';
 import { TodoListModule } from '@app/todo-list/todo-list.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -35,7 +34,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SharedModule,
     HttpClientModule,
     appRouterModule,
-    TodoListCompletedModule,
     TodoListModule,
     TranslateModule.forRoot({
       loader: {

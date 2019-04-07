@@ -1,22 +1,26 @@
-<div class="todo-list-wrapper">
+<div class="todo-list-wrapper" *ngIf="(todoList$ | async) as todoList">
   <div class="mx-auto col-10">
     <h5>{{'todo-list' | translate}}</h5>
     <hr>
-
     <app-cards-list [tableRef]="todoListRef" [cardRef]="todoItemCardRef" [data]="todoList"></app-cards-list>
+
+    <hr>
+    <div>
+      {{'todo-list-section.todos-duedate-today' | translate}}: {{todoList | duedateTodayCount}}
+    </div>
   </div>
 
   <hr>
 
-  <app-add-todo [currentTODO]="currentTODO"></app-add-todo>
+  <app-add-todo [currentTODO]="selectedTodoForEdit$ | async" [isLoading]="isLoading$ | async" (todoItemEdit)="todoItemEdit($event)" (todoItemCreate)="todoItemCreate($event)"></app-add-todo>
 </div>
 
 <ng-template #todoItemCardRef let-todo="data">
-  <app-todo-item-card [todoItem]="todo" (todoDelete)="deleteTodo($event)" (todoEdit)="editTodo($event)"></app-todo-item-card>
+  <app-todo-item-card [todoItem]="todo" (todoDelete)="deleteTodo($event)" (todoEdit)="setTodoForEdit($event)"></app-todo-item-card>
 </ng-template>
 
 <ng-template #todoListRef let-todos="data">
   <ul class="list-group mb-3">
-    <app-todo-item-list-row *ngFor="let todo of todos" [todoItem]="todo" (todoDelete)="deleteTodo($event)" (todoEdit)="editTodo($event)"></app-todo-item-list-row>
+    <app-todo-item-list-row *ngFor="let todo of todos; trackBy: trackByFn" [todoItem]="todo" (todoDelete)="deleteTodo($event)" (todoComplete)="todoItemEdit ($event)" (todoEdit)="setTodoForEdit($event)"></app-todo-item-list-row>
   </ul>
 </ng-template>

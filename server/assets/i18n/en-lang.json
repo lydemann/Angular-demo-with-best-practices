@@ -13,7 +13,8 @@
   },
   "todo-list-section": {
     "show-cards": "Show cards",
-    "show-list": "Show list"
+    "show-list": "Show list",
+    "todos-duedate-today": "Expires today"
   },
   "add-todo": {
     "headline": "Add TODO",

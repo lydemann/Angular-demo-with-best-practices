@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cards-list',
   templateUrl: './cards-list.component.html',
-  styleUrls: ['./cards-list.component.scss']
+  styleUrls: ['./cards-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardsTableComponent implements OnInit {
   @Input() public data: any;
