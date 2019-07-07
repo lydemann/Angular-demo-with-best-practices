@@ -118,15 +118,6 @@
             "production": {
               "devServerTarget": "Angular-demo-with-best-practices:serve:production"
             }
-          },
-          "lint": {
-            "builder": "@angular-devkit/build-angular:tslint",
-            "options": {
-              "tsConfig": "e2e/tsconfig.e2e.json",
-              "exclude": [
-                "**/node_modules/**"
-              ]
-            }
           }
         }
       }
