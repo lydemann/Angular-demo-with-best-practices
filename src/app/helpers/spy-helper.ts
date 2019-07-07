@@ -1,3 +1,4 @@
+import * as jasmine from 'jasmine-core';
 import { Provider, Type } from '@angular/core';
 export type Mock<T> = T & { [P in keyof T]: T[P] & jasmine.Spy };
 export class SpyHelper {
