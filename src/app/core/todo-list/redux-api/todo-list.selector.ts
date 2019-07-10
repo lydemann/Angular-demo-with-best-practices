@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
+
 import { TodoListState } from './todo-list.model';
 
 export const getTodolistState = createFeatureSelector<TodoListState>('todoList');

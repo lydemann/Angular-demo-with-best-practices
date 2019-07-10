@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
 
 @Component({

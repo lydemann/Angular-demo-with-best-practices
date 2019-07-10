@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
+
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
 
 export const rootPath = '';

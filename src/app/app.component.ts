@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+
 import { TodoListService } from './core/todo-list/todo-list.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
     translate.use(browserLang.match(/en|da/) ? browserLang : 'en');
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.todoListService.loadTodoList();
   }
 }

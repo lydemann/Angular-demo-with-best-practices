@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { TODOItem } from '@app/shared/models/todo-item';
 
 @Component({
@@ -14,15 +8,11 @@ import { TODOItem } from '@app/shared/models/todo-item';
   styleUrls: ['./todo-item-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodoItemCardComponent implements OnInit {
+export class TodoItemCardComponent {
   @Input() public todoItem: TODOItem;
   @Input() public readOnlyTODO: boolean;
   @Output() public todoDelete = new EventEmitter<string>();
   @Output() public todoEdit = new EventEmitter<TODOItem>();
-
-  constructor() {}
-
-  public ngOnInit() {}
 
   public completeClick() {
     this.todoItem.completed = !this.todoItem.completed;

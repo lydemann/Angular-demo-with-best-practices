@@ -3,6 +3,10 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from 'environments/environment';
+
 import { AppInitService } from '@app/app-init.service';
 import { AppComponent } from '@app/app.component';
 import { appRouterModule } from '@app/app.routes';
@@ -11,9 +15,6 @@ import { FooterComponent } from '@app/footer/footer.component';
 import { NavbarComponent } from '@app/navbar/navbar.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { TodoListModule } from '@app/todo-list/todo-list.module';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { environment } from 'environments/environment';
 
 export function init_app(appLoadService: AppInitService) {
   return () => appLoadService.init();

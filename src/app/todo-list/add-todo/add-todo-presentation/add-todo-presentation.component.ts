@@ -1,5 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import { TODOItem } from '@app/shared/models/todo-item';
 
 @Component({
@@ -15,9 +23,9 @@ export class AddTodoPresentationComponent implements OnInit {
 
   @Output() public saved = new EventEmitter<NgForm>();
 
-  constructor() { }
+  constructor() {}
 
-  public ngOnInit() { }
+  public ngOnInit() {}
 
   public save(form: NgForm) {
     this.saved.emit(form);

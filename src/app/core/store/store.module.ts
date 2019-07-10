@@ -4,6 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'environments/environment';
+
 import { TodoListStoreModule } from '../todo-list/redux-api/todo-list-store.module';
 
 @NgModule({
@@ -20,12 +21,6 @@ import { TodoListStoreModule } from '../todo-list/redux-api/todo-list-store.modu
   declarations: []
 })
 export class StateModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: StateModule
-    };
-  }
-
   constructor(
     @Optional()
     @SkipSelf()
@@ -34,5 +29,10 @@ export class StateModule {
     if (parentModule) {
       throw new Error('StateModule is already loaded. Import it in the AppModule only');
     }
+  }
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: StateModule
+    };
   }
 }

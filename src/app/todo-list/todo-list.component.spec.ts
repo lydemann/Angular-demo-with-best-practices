@@ -1,13 +1,14 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+
+import { TodoListActions } from '@app/core/todo-list/redux-api/todo-list.actions';
+import { TodoListSelector } from '@app/core/todo-list/redux-api/todo-list.selector';
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
 import { TODOItem } from '@app/shared/models/todo-item';
 import { TodoItemListRowComponentMock } from '@app/shared/todo-item-list-row/todo-item-list-row.component.mock';
 import { AddTodoComponentMock } from '@app/todo-list/add-todo/add-todo.component.mock';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
-import { of } from 'rxjs';
-import { TodoListActions } from './redux-api/todo-list.actions';
-import { TodoListSelector } from './redux-api/todo-list.selector';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -24,7 +25,7 @@ describe('TodoListComponent', () => {
       providers: [
         {
           provide: TodoListService,
-          useValue: { todoList: todoList }
+          useValue: { todoList }
         },
         {
           provide: TodoListSelector,

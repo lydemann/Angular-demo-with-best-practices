@@ -1,5 +1,6 @@
-import { TODOItem } from '@app/shared/models/todo-item';
 import { Store } from '@ngrx/store';
+
+import { TODOItem } from '@app/shared/models/todo-item';
 import { TodoListState } from './todo-list.model';
 import { TodoListSelector, todoListSelectorFn } from './todo-list.selector';
 
@@ -9,7 +10,7 @@ describe('TodoListSelector', () => {
       const todos = [new TODOItem('todo1', 'todo1')];
 
       const todoListState = {
-        todos: todos,
+        todos,
         isLoading: true
       } as TodoListState;
 

@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { TodoListService } from '@app/core/todo-list/todo-list.service';
-import { TODOItem } from '@app/shared/models/todo-item';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
+
+import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { TODOItem } from '@app/shared/models/todo-item';
 import { LoadTodoList, TodoItemsLoaded, TodoItemsLoadFailed } from './todo-list.actions';
 import { TodoListEffects } from './todo-list.effects';
 

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
 import { TODOItem } from '@app/shared/models/todo-item';
 
@@ -15,7 +16,7 @@ export class TodoListComponent implements OnInit {
 
   constructor(private todoListService: TodoListService) {}
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {}
 
   public deleteTodo(id: string) {
     this.todoListService.deleteTodo(id);

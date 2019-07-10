@@ -2,10 +2,11 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgForm } from '@angular/forms';
-import { TodoListService } from '@app/core/todo-list/todo-list.service';
-import { SpyHelper } from '@app/helpers/spy-helper';
 import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
+
+import { TodoListService } from '@app/core/todo-list/todo-list.service';
+import { SpyHelper } from '@app/helpers/spy-helper';
 import { AddTodoComponent } from './add-todo.component';
 
 describe('AddTodoComponent', () => {
