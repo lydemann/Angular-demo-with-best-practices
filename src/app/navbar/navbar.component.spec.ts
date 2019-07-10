@@ -5,6 +5,9 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
+
 import { AppComponent } from '@app/app.component';
 import { appRouterModule } from '@app/app.routes';
 import { CoreModule } from '@app/core/core.module';
@@ -14,8 +17,6 @@ import { TodoItemListRowComponent } from '@app/shared/todo-item-list-row/todo-it
 import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
 import { AddTodoComponent } from '@app/todo-list/add-todo/add-todo.component';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -34,7 +35,7 @@ describe('NavbarComponent', () => {
       ],
       imports: [
         BrowserModule,
-        NgbModule.forRoot(),
+        NgbModule,
         TranslateModule.forRoot(),
         FormsModule,
         CoreModule,

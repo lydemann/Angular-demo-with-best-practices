@@ -2,9 +2,10 @@
 
 import { HttpClient } from '@angular/common/http';
 import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
+import { of } from 'rxjs';
+
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
 import { TODOItem } from '@app/shared/models/todo-item';
-import { of } from 'rxjs';
 
 describe('Service: TodoList', () => {
   let todoListService: TodoListService;

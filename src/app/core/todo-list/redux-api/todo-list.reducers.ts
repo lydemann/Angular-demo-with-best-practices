@@ -5,9 +5,9 @@ import { TodoListActionTypes } from './todo-list.actions';
 import { TodoListState } from './todo-list.model';
 
 export class TodoListInitState implements TodoListState {
-  todos: TODOItem[];
-  errors?: Error;
-  isLoading: boolean;
+  public todos: TODOItem[];
+  public errors?: Error;
+  public isLoading: boolean;
   constructor() {
     this.todos = [];
     this.isLoading = false;

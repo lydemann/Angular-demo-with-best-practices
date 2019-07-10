@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+
 import { InvalidDateValidatorDirective } from '@app/shared/invalid-date.directive';
 import { SpinnerOverlayWrapperModule } from '@app/shared/spinner-overlay-wrapper/spinner-overlay-wrapper.module';
-import { TranslateModule } from '@ngx-translate/core';
 import { SpinnerModule } from '@shared-lib/spinner/spinner.module';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { CardListModule } from './cards-list/cards-list.module';

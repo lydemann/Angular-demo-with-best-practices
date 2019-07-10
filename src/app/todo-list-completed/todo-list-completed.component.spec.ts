@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { completedTodoPath } from '@app/app.routes';
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
 import { TODOItem } from '@app/shared/models/todo-item';
@@ -23,7 +24,7 @@ describe('TodoListCompletedComponent', () => {
         {
           provide: TodoListService,
           useValue: {
-            todoList: todoList
+            todoList
           }
         }
       ]

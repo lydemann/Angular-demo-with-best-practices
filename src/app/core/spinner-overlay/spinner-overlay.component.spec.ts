@@ -1,5 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { SpinnerOverlayComponent } from '@app/core/spinner-overlay/spinner-overlay.component';
 import { SpinnerComponent } from '@shared-lib/spinner/spinner.component';
 
