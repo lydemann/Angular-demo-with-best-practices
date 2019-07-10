@@ -47,7 +47,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [
     AppInitService,
-    AppInitService,
     {
       provide: APP_INITIALIZER,
       useFactory: init_app,
