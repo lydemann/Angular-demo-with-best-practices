@@ -1,7 +1,6 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +15,7 @@ import { NavbarComponent } from '@app/navbar/navbar.component';
 import { TodoItemListRowComponent } from '@app/shared/todo-item-list-row/todo-item-list-row.component';
 import { TodoListCompletedComponent } from '@app/todo-list-completed/todo-list-completed.component';
 import { AddTodoComponent } from '@app/todo-list/add-todo/add-todo.component';
+import { DuedateTodayCountPipe } from '@app/todo-list/duedate-today-count.pipe';
 import { TodoListComponent } from '@app/todo-list/todo-list.component';
 
 describe('NavbarComponent', () => {
@@ -31,7 +31,8 @@ describe('NavbarComponent', () => {
         TodoItemListRowComponent,
         FooterComponent,
         AddTodoComponent,
-        TodoListCompletedComponent
+        TodoListCompletedComponent,
+        DuedateTodayCountPipe
       ],
       imports: [
         BrowserModule,

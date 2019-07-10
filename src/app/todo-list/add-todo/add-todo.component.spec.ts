@@ -6,20 +6,25 @@ import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
 
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
-import { SpyHelper } from '@app/helpers/spy-helper';
+import { createMagicalMock, provideMagicalMock } from '@app/helpers/spy-helper';
 import { AddTodoComponent } from './add-todo.component';
+import { AddTodoService } from './add-todo.service';
 
 describe('AddTodoComponent', () => {
   let component: AddTodoComponent;
   let fixture: ComponentFixture<AddTodoComponent>;
 
+  const addTodoServiceStub = createMagicalMock(AddTodoService);
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddTodoComponent],
       imports: [FormsModule, TranslateModule.forRoot()],
-      providers: [SpyHelper.provideMagicalMock(TodoListService)],
+      providers: [provideMagicalMock(TodoListService)],
       schemas: [NO_ERRORS_SCHEMA]
-    }).compileComponents();
+    })
+      .overrideProvider(AddTodoService, { useValue: addTodoServiceStub })
+      .compileComponents();
   }));
 
   let todoListServiceMock: jasmine.SpyObj<TodoListService>;
@@ -42,7 +47,7 @@ describe('AddTodoComponent', () => {
       { id: 'task2', title: 'Go to the gym', description: 'Remember to work out' }
     ];
     (todoListServiceMock as any).todoList = todoList;
-    todoListServiceMock.updateTodo.and.returnValue(of([]));
+    todoListServiceMock.editTodo.and.returnValue(of([]));
 
     // Act
     component.currentTODO = todoList[0];
@@ -50,7 +55,7 @@ describe('AddTodoComponent', () => {
     component.save(form);
 
     // Assert
-    expect(todoListServiceMock.updateTodo).toHaveBeenCalledWith(component.currentTODO);
+    expect(addTodoServiceStub.save).toHaveBeenCalledWith(form);
   });
 
   it('should add new todo item when todo item is not in todo list', () => {
@@ -62,7 +67,6 @@ describe('AddTodoComponent', () => {
       { id: 'task2', title: 'Go to the gym', description: 'Remember to work out' }
     ];
     (todoListServiceMock as any).todoList = todoList;
-    todoListServiceMock.addTodo.and.returnValue(of([]));
 
     // Act
     component.currentTODO = newTodo;
@@ -71,6 +75,6 @@ describe('AddTodoComponent', () => {
     component.save(form);
 
     // Assert
-    expect(todoListServiceMock.addTodo).toHaveBeenCalledWith(newTodo);
+    expect(addTodoServiceStub.save).toHaveBeenCalledWith(form);
   });
 });

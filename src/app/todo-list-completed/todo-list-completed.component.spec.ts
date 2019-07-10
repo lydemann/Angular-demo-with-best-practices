@@ -1,6 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 import { completedTodoPath } from '@app/app.routes';
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
@@ -14,7 +16,7 @@ describe('TodoListCompletedComponent', () => {
   beforeEach(async(() => {
     const todo1 = new TODOItem('Buy milk', 'Remember to buy milk');
     todo1.completed = true;
-    const todoList = [todo1, new TODOItem('Buy flowers', 'Remember to buy flowers')];
+    const todoList = [todo1];
 
     TestBed.configureTestingModule({
       declarations: [TodoListCompletedComponent],
@@ -24,7 +26,7 @@ describe('TodoListCompletedComponent', () => {
         {
           provide: TodoListService,
           useValue: {
-            todoList
+            completedTodoList$: of(todoList)
           }
         }
       ]
@@ -43,7 +45,10 @@ describe('TodoListCompletedComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have one completed TODO item', () => {
-    expect(component.todoList.length).toBe(1);
+  it('should have one completed TODO item', (done) => {
+    component.completedTodoList$.pipe(first()).subscribe((todoList) => {
+      expect(todoList.length).toBe(1);
+      done();
+    });
   });
 });

@@ -25,7 +25,7 @@ describe('TodoListComponent', () => {
       providers: [
         {
           provide: TodoListService,
-          useValue: { todoList }
+          useValue: { todoList, getTodoForEdit$: () => of(todo1) }
         },
         {
           provide: TodoListSelector,

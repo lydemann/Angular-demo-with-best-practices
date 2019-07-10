@@ -3,8 +3,9 @@ import { async, TestBed } from '@angular/core/testing';
 import { TranslateService } from '@ngx-translate/core';
 
 import { AppComponent } from '@app/app.component';
+import { TodoListService } from './core/todo-list/todo-list.service';
 import { FooterComponentMock } from './footer/FooterComponentMock';
-import { SpyHelper } from './helpers/spy-helper';
+import { provideMagicalMock } from './helpers/spy-helper';
 import { NavbarComponentMock } from './navbar/navbar.component.mock';
 
 describe('AppComponent', () => {
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
       imports: [],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
-        SpyHelper.provideMagicalMock(TranslateService)
+        provideMagicalMock(TranslateService),
+        provideMagicalMock(TodoListService)
       ]
     })
       .overrideTemplate(AppComponent, '')
