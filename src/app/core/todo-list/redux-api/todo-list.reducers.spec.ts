@@ -55,12 +55,9 @@ describe('TodoList reducer', () => {
 
       expect(initState.todos.length).toBe(1);
 
-      const todoToDelete = 'todoToDelete';
-      const loadTodoItemsAction = new GenericAction(
-        TodoListActionTypes.TodoItemDeleted,
-        todoToDelete
-      );
-      const newState = todoListReducers(initState, loadTodoItemsAction);
+      const todoToDelete = initState.todos[0].id;
+      const action = new GenericAction(TodoListActionTypes.TodoItemDeleted, todoToDelete);
+      const newState = todoListReducers(initState, action);
 
       expect(newState.todos.length).toBe(0);
     });

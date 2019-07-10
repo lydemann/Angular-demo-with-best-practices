@@ -10,6 +10,11 @@ export const todoListSelectorFn = createSelector(
   (todoListState) => todoListState.todos
 );
 
+export const completedTodosSelectorFn = createSelector(
+  todoListSelectorFn,
+  (todos) => todos.filter((todo) => todo.completed)
+);
+
 export const todoItemForEditSelectorFn = createSelector(
   getTodolistState,
   (todoListState) => todoListState.todos[todoListState.editTodoItemIdx]
@@ -30,6 +35,10 @@ export class TodoListSelector {
    */
   public getTodoList$() {
     return this.store.select(todoListSelectorFn);
+  }
+
+  public getCompletedTodoList$() {
+    return this.store.select(completedTodosSelectorFn);
   }
 
   public getTodoItemForEdit$() {

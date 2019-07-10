@@ -3,13 +3,13 @@
 import { inject, TestBed } from '@angular/core/testing';
 
 import { TodoListService } from '@app/core/todo-list/todo-list.service';
-import { SpyHelper } from '@app/helpers/spy-helper';
+import { provideMagicalMock } from '@app/helpers/spy-helper';
 import { AddTodoService } from './add-todo.service';
 
 describe('Service: AddTodo', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AddTodoService, SpyHelper.provideMagicalMock(TodoListService)]
+      providers: [AddTodoService, provideMagicalMock(TodoListService)]
     });
   });
 

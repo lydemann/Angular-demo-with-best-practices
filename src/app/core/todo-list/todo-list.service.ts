@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 import { TODOItem } from '@app/shared/models/todo-item';
 import { TodoListActions } from './redux-api/todo-list.actions';
@@ -11,11 +9,8 @@ import { TodoListSelector } from './redux-api/todo-list.selector';
 export class TodoListService {
   public isLoading$ = this.todoListSelector.getIsLoading$();
 
-  private _todoList: TODOItem[] = [];
-
-  public get todoList(): TODOItem[] {
-    return this._todoList;
-  }
+  public todoList$ = this.todoListSelector.getTodoList$();
+  public completedTodoList$ = this.todoListSelector.getCompletedTodoList$();
 
   private todoListUrl = '//localhost:8080/api/todo-list';
 
@@ -26,15 +21,7 @@ export class TodoListService {
   ) {}
 
   public getTodos() {
-    return this.httpClient.get<TODOItem[]>(this.todoListUrl).pipe(
-      tap((data) => {
-        this._todoList = data;
-      })
-    );
-  }
-
-  public getTodoList(): Observable<TODOItem[]> {
-    return this.todoListSelector.getTodoList$();
+    return this.httpClient.get<TODOItem[]>(this.todoListUrl);
   }
 
   public loadTodoList(): any {

@@ -10,7 +10,7 @@ import { TODOItem } from '@app/shared/models/todo-item';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent implements OnInit {
-  public todoList$ = this.todoListService.getTodoList();
+  public todoList$ = this.todoListService.todoList$;
   public selectedTodoForEdit$ = this.todoListService.getTodoForEdit$();
   public isLoading$ = this.todoListService.isLoading$;
 
