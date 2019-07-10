@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:all": "nodemon server | ng serve",
-    "prerender": "ts-node -P ./tsconfig.server.json ./tools/prerender.ts",
+    "prerender": "ts-node -P ./tsconfig.prerender.json ./tools/prerender.ts",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
