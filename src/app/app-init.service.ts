@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import fetch from 'node-fetch';
 import { from } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 declare var window: any;
 
 @Injectable()
