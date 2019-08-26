@@ -15,8 +15,7 @@
     "printWidth": 100,
     "semi": true,
     "bracketSpacing": true,
-    "arrowParens": "always",
-    "parser": "typescript"
+    "arrowParens": "always"
   },
   "private": true,
   "dependencies": {
