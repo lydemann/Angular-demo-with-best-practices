@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { AppComponent } from '@app/app.component';
 import { TodoListService } from './core/todo-list/todo-list.service';
-import { FooterComponentMock } from './footer/FooterComponentMock';
+import { FooterComponentMock } from './footer/footer.component.mock';
 import { provideMagicalMock } from './helpers/spy-helper';
 import { NavbarComponentMock } from './navbar/navbar.component.mock';
 
